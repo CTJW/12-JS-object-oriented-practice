@@ -51,16 +51,25 @@ function expect(target) {
 // Only add code to *THIS* section!
 
 function Dog(obj) {
-  // console.log(obj);
-  this.color = obj.color;
-  this.hungry = obj.hungry;
-  this.status = obj.status;
-  if (obj !== this.color) {
-    this.color = "none";
+  this.status = "normal";
+  if (obj) {
+    this.color = obj.color;
+
+    if (obj.hungry !== undefined) {
+      this.hungry = obj.hungry;
+    } else {
+      this.hungry = true;
+    }
   }
 }
 
-function Human() {}
+function Human(obj) {
+  if (obj) {
+    this.cool = obj.cool;
+  } else {
+    this.cool = false;
+  }
+}
 
 Human.prototype.pet = function (obj) {
   obj.status = "happy";
